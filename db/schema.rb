@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_170146) do
+ActiveRecord::Schema.define(version: 2019_07_08_210106) do
+
+  create_table "guitars", force: :cascade do |t|
+    t.string "guitar_type"
+    t.string "brand"
+    t.string "model"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "string_packs", force: :cascade do |t|
+    t.string "guage"
+    t.string "brand"
+    t.string "model"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
