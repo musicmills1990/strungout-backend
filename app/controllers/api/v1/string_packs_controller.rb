@@ -8,7 +8,9 @@ class Api::V1::StringPacksController < ApplicationController
 
   # GET /stringpacks/1
   def show
-    render json: @stringpack
+    # render json: @stringpack
+    stringpack_json = StringPackSerializer.new(@stringpack).serialized_json
+    render json: stringpack_json
   end
 
   # POST /stringpacks

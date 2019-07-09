@@ -8,7 +8,9 @@ class Api::V1::GuitarsController < ApplicationController
 
   # GET /guitars/1
   def show
-    render json: @guitar
+    # render json: @guitar
+    guitar_json = GuitarSerializer.new(@guitar).serialized_json
+    render json: guitar_json
   end
 
   # POST /guitars
