@@ -5,7 +5,7 @@ class CreateStringPacks < ActiveRecord::Migration[5.2]
       t.string :brand
       t.string :model
       t.float :price
-
+      t.integer :user_id
       t.timestamps
     end
   end

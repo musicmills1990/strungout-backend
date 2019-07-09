@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_210106) do
     t.string "brand"
     t.string "model"
     t.string "color"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_210106) do
     t.string "brand"
     t.string "model"
     t.float "price"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
