@@ -14,6 +14,7 @@ class Api::V1::SessionsController < ApplicationController
   end
 
 
+
   def get_current_user
     if logged_in?
       render json: current_user
@@ -23,4 +24,12 @@ class Api::V1::SessionsController < ApplicationController
       }
     end
   end
+
+  def destroy
+    session.clear
+    render json: {
+      notice: "successfully logged out"
+    }
+  end
+
 end
