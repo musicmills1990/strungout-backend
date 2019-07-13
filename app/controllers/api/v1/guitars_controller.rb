@@ -2,8 +2,14 @@ class Api::V1::GuitarsController < ApplicationController
   before_action :set_guitar, only: [:show, :update, :destroy]
 
   def index
-    @guitars = Guitar.all
-    render json: @guitars
+    if logged_in?
+      @guitars = current_user.guitars
+      render json: GuitarSerializer.new(@guitars)
+    else
+      render json: {
+        error: "You must be logged in to see your guitar"
+      }
+    end
   end
 
   # GET /guitars/1
