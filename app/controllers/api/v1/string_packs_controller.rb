@@ -3,7 +3,7 @@ class Api::V1::StringPacksController < ApplicationController
 
   def index
     @stringpacks = StringPack.all
-    render json: @stringpacks
+      render json: StringPackSerializer.new(@stringpacks)
   end
 
   # GET /stringpacks/1
