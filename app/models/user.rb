@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
   has_many  :guitars
-  has_one :string_pack
+  has_many :string_packs
 end
