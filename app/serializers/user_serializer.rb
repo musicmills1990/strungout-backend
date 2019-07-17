@@ -1,6 +1,6 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :email, :player_type
+  attributes :name, :email, :player_type, :plan, :address, :pay_schedule
   # attribute :guitars do |user|
   #   user.guitars.map do |guitar|
   #     {
