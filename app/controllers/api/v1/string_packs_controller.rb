@@ -7,7 +7,7 @@ class Api::V1::StringPacksController < ApplicationController
       render json: StringPackSerializer.new(@stringpacks)
     else
       render json: {
-        error: "You must be logged in to see your guitar"
+        error: "You must be logged in to see your string pack"
       }
     end
   end
