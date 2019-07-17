@@ -22,9 +22,9 @@ class Api::V1::GuitarsController < ApplicationController
   # POST /guitars
   def create
     @guitar = Guitar.new(guitar_params)
-
     if @guitar.save
-      render json: @guitar, status: :created, location: @guitar
+      session[:user_id] = @guitar.user_id
+      render json: GuitarSerializer.new(@guitar), status: :created
     else
       render json: @guitar.errors, status: :unprocessable_entity
     end
