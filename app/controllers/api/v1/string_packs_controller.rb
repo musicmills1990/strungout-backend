@@ -2,8 +2,14 @@ class Api::V1::StringPacksController < ApplicationController
   before_action :set_stringpack, only: [:show, :update, :destroy]
 
   def index
-    @stringpacks = StringPack.all
+    if logged_in?
+      @stringpacks = current_user.string_packs
       render json: StringPackSerializer.new(@stringpacks)
+    else
+      render json: {
+        error: "You must be logged in to see your guitar"
+      }
+    end
   end
 
   # GET /stringpacks/1
