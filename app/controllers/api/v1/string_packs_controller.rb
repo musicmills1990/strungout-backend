@@ -22,8 +22,8 @@ class Api::V1::StringPacksController < ApplicationController
   # POST /stringpacks
   def create
     @stringpack = StringPack.new(stringpack_params)
-
     if @stringpack.save
+      session[:user_id] = @guitar.user_id
       render json: @stringpack, status: :created, location: @stringpack
     else
       render json: @stringpack.errors, status: :unprocessable_entity
