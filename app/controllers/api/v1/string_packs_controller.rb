@@ -17,7 +17,7 @@ class Api::V1::StringPacksController < ApplicationController
     @stringpack = StringPack.new(stringpack_params)
     if @stringpack.save
       session[:user_id] = @stringpack.user_id
-      render json: StringPackSerializer.new(@stringpacks), status: created
+      render json: StringPackSerializer.new(@stringpacks), status: :created
     else
       render json: @stringpack.errors, status: :unprocessable_entity
     end
@@ -43,6 +43,6 @@ class Api::V1::StringPacksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def stringpack_params
-      params.require(:stringpack).permit(:guage, :brand, :model, :price, :low_e_string_counter, :a_string_counter, :d_string_counter, :g_string_counter, :b_string_counter, :high_e_string_counter)
+      params.require(:stringpack).permit(:guage, :brand, :model, :price, :low_e_string_counter, :a_string_counter, :d_string_counter, :g_string_counter, :b_string_counter, :high_e_string_counter, :user_id)
     end
 end
