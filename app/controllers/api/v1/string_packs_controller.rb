@@ -23,6 +23,12 @@ class Api::V1::StringPacksController < ApplicationController
     end
   end
 
+  def show
+    # render json: @guitar
+    stringpack_json = StringPackSerializer.new(@stringpack).serialized_json
+    render json: stringpack_json
+  end
+
   # PATCH/PUT /stringpacks/1
   def update
     if @stringpack.update(stringpack_params)
